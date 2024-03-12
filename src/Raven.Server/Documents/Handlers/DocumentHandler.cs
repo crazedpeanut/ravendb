@@ -260,7 +260,7 @@ namespace Raven.Server.Documents.Handlers
                     else
                     {
                         string changeVector = document.ChangeVector;
-                        if (clusterWideTx && 
+                        if (!string.IsNullOrEmpty(changeVector) && clusterWideTx && 
                             changeVector.Contains(Database.ClusterTransactionId) == false)
                         {
                             Debug.Assert(includeCompareExchangeValues != null, nameof(includeCompareExchangeValues) + " != null");
